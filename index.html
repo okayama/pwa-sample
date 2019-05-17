@@ -7,10 +7,31 @@
   <script type="text/javascript" src="./main.js"></script>
   <script>
     // service workerが有効なら、service-worker.js を登録します
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js').then(function() { console.log('Service Worker Registered'); });
-   }
+//     if ('serviceWorker' in navigator) {
+//       navigator.serviceWorker.register('./service-worker.js').then(function() { console.log('Service Worker Registered'); });
+//    }
   </script>
+   <script>
+window.addEventListener('load', function() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("/sw.js")
+      .then(function(registration) {
+        return registration.pushManager.getSubscription().then(function(subscription) {
+          if (subscription) {
+            return subscription
+          }
+          return registration.pushManager.subscribe({
+            userVisibleOnly: true
+          })
+        })
+      }).then(function(subscription) {
+        console.log("pushManager endpoint:", subscription.endpoint) 
+      }).catch(function(error) {
+        console.warn("serviceWorker error:", error)
+      })
+  }
+});
+</script>
   <title>Hello PWA.</title>
   <style>
     body {
