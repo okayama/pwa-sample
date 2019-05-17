@@ -4,7 +4,7 @@ const
   CACHE = version + '::PWAsite',
   offlineURL = '/offline/index.html',
   installFilesEssential = [
-    '/',
+    '/pwa-sample/',
     '/pwa-sample/manifest.json',
     '/pwa-sample/styles.css',
     '/pwa-sample/main.js',
@@ -14,7 +14,7 @@ const
     '/pwa-sample/pwa-logo.svg'
   ].concat(offlineURL),
   installFilesDesirable = [
-    '/p.html'
+    '/pwa-sample/p.html'
   ];
 
 // install static assets
