@@ -2,7 +2,7 @@
 const
   version = '1.0.0',
   CACHE = version + '::PWAsite',
-  offlineURL = '/offline/index.html',
+  offlineURL = '/pwa-sample/offline/index.html',
   installFilesEssential = [
     '/pwa-sample/',
     '/pwa-sample/manifest.json',
